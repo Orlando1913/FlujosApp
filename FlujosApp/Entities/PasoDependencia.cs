@@ -1,11 +1,17 @@
-﻿namespace FlujosApp.Entities
+﻿using System.Text.Json.Serialization;
+
+namespace FlujosApp.Entities
 {
     public class PasoDependencia
     {
         public int PasoId { get; set; }
-        public Paso Paso { get; set; } = null!;
+
+        [JsonIgnore]
+        public Paso? Paso { get; set; }
 
         public int DependeDePasoId { get; set; }
-        public Paso DependeDePaso { get; set; } = null!;
+
+        [JsonIgnore]
+        public Paso? DependeDePaso { get; set; }
     }
 }

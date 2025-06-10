@@ -18,6 +18,18 @@ namespace FlujosApp.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Flujo>()
+                .HasMany(f => f.Pasos)
+                .WithOne(p => p.Flujo)
+                .HasForeignKey(p => p.FlujoId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Paso>()
+                .HasMany(p => p.Campos)
+                .WithOne(c => c.Paso)
+                .HasForeignKey(c => c.PasoId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             modelBuilder.Entity<PasoDependencia>()
                 .HasKey(pd => new { pd.PasoId, pd.DependeDePasoId });
 
