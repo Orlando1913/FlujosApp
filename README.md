@@ -23,6 +23,7 @@
 - Visual Studio 2022+ o Visual Studio Code
 - [EF Core CLI](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 
+
 ### 2锔忊儯 Clonar el proyecto
 
 ```bash
@@ -41,6 +42,24 @@ Edita el archivo `appsettings.json` y configura tu cadena de conexi贸n:
   }
 }
 ```
+
+
+## 🛠 Restauración de la Base de Datos
+
+Se incluye un archivo de respaldo SQL Server en la ruta:
+
+
+### Pasos para restaurar:
+
+1. Abre **SQL Server Management Studio**.
+2. Crea una nueva base de datos (por ejemplo, `FlujosAppDB`).
+3. Haz clic derecho sobre la base → `Tareas` → `Restaurar base de datos`.
+4. Selecciona **Dispositivo**, busca el archivo `.bak` incluido.
+5. Asegúrate de marcar la opción **"Sobrescribir la base de datos existente"** si es necesario.
+6. Aplica los cambios y verifica que la restauración fue exitosa.
+
+⚠ Luego, actualiza tu cadena de conexión en `appsettings.json` apuntando a esta base de datos.
+
 
 ### 4锔忊儯 Restaurar dependencias y compilar
 
